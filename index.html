@@ -10,6 +10,7 @@
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Orbitron', sans-serif;
@@ -144,7 +145,28 @@ footer {
   75% { transform: translate(-3px,2px); }
   100% { transform: translate(0); }
 }
+  .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.nav a {
+  margin-left: 20px;
+  color: #00ff9c;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -155,12 +177,21 @@ footer {
   <h1 class="neon">BullRaizer</h1>
   <p>Unleash the Bull. Cut the Bear.</p>
   <img src="assets/bull.png" class="bull">
+<a id="buy"></a>
   <a href="https://jup.ag" class="buy-btn">BUY ON SOLANA DEX</a>
+</div>
+<div class="section">
+  <h2 class="neon">Live Status</h2>
+  <div class="cards">
+    <div class="card">Price<br>$0.0000</div>
+    <div class="card">Holders<br>—</div>
+    <div class="card">Liquidity<br>—</div>
+  </div>
 </div>
 
 <div class="container">
 
-<div class="section">
+<div class="section" id="tokenomics">
   <h2 class="neon">Tokenomics</h2>
   <div class="cards">
     <div class="card">🔥 Supply<br>1B</div>
@@ -170,7 +201,7 @@ footer {
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="roadmap">
   <h2 class="neon">Roadmap</h2>
   <div class="roadmap-step">Phase 1 — Launch & Chaos</div>
 <div class="roadmap-step">Phase 2 — Herd Growth</div>
@@ -217,4 +248,16 @@ buyBtn.buyBtn.addEventListener('click', e => {
 </script>
 
 </body>
+<div id="preloader">
+  <span class="neon">BullRaizer</span>
+</div>
+
 </html>
+<nav class="nav">
+  <div class="logo">BullRaizer</div>
+  <div class="nav-links">
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#buy">Buy</a>
+  </div>
+</nav>
