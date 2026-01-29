@@ -164,6 +164,42 @@ footer {
   text-decoration: none;
   font-size: .9rem;
 }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ff9c;
+}
+.lore {
+  margin-top: 30px;
+  font-size: .9rem;
+  opacity: .75;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 </style>
 
@@ -188,6 +224,26 @@ footer {
     <div class="card">Liquidity<br>—</div>
   </div>
 </div>
+<div class="section" id="gallery">
+  <h2 class="neon">BullRaizer Saga</h2>
+
+  <div class="gallery reveal">
+    <img src="assets/bull-vs-bear.png" alt="Bull vs Bear">
+    <img src="assets/bull-katana.png" alt="Bull with Katana">
+    <img src="assets/bull-solo.png" alt="Bull Solo">
+  </div>
+</div>
+<p class="lore reveal">
+  When bears took control of the market,<br>
+  one bull refused to fall.<br><br>
+
+  Armed with nothing but a katana and conviction,<br>
+  BullRaizer cuts through fear, doubt and red candles.<br><br>
+
+  This is not a promise.<br>
+  This is a meme.<br>
+  This is BullRaizer.
+</p>
 
 <div class="container">
 
@@ -245,6 +301,23 @@ buyBtn.buyBtn.addEventListener('click', e => {
 });
 
 });
+</script>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      const trigger = window.innerHeight * 0.85;
+
+      if (top < trigger) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 </script>
 
 </body>
