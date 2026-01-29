@@ -26,9 +26,10 @@ body {
 /* HERO */
 .hero {
   min-height: 100vh;
-  padding: 100px 20px 40px;
+  padding: 70px 20px 40px;
   text-align: center;
 }
+
 
 .hero h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -43,6 +44,9 @@ body {
   width: min(90%, 320px);
   margin: 40px auto;
   animation: float 3s ease-in-out infinite;
+}
+.bull {
+  cursor: pointer;
 }
 
 @keyframes float {
@@ -168,10 +172,10 @@ footer {
 
 <div class="section">
   <h2 class="neon">Roadmap</h2>
-  <div class="roadmap-step">Phase 1 — Launch</div>
-  <div class="roadmap-step">Phase 2 — Listings</div>
-  <div class="roadmap-step">Phase 3 — NFTs & Utility</div>
-</div>
+  <div class="roadmap-step">Phase 1 — Launch & Chaos</div>
+<div class="roadmap-step">Phase 2 — Herd Growth</div>
+<div class="roadmap-step">Phase 3 — Bull Domination</div>
+
 
 <div class="section socials">
   <h2 class="neon">Join the Herd</h2>
@@ -182,6 +186,10 @@ footer {
 </div>
 
 <footer>Built on Solana ⚡ BullRaizer</footer>
+<footer>
+  Built on Solana ⚡ BullRaizer<br>
+  <small>No financial advice. Meme only.</small>
+</footer>
 
 <script>
 const slash = document.getElementById('slash');
@@ -197,9 +205,14 @@ function triggerSlash(){
 }
 
 bull.addEventListener('mouseenter', triggerSlash);
-buyBtn.addEventListener('click', e => {
+buyBtn.buyBtn.addEventListener('click', e => {
   e.preventDefault();
   triggerSlash();
+  setTimeout(() => {
+    window.location.href = buyBtn.href;
+  }, 300);
+});
+
 });
 </script>
 
