@@ -291,8 +291,11 @@ function triggerSlash(){
   document.body.classList.add('shake');
 }
 
+// Slash on bull hover
 bull.addEventListener('mouseenter', triggerSlash);
-buyBtn.buyBtn.addEventListener('click', e => {
+
+// Slash on BUY click
+buyBtn.addEventListener('click', e => {
   e.preventDefault();
   triggerSlash();
   setTimeout(() => {
@@ -300,22 +303,24 @@ buyBtn.buyBtn.addEventListener('click', e => {
   }, 300);
 });
 
-  const reveals = document.querySelectorAll('.reveal');
+// ===== SCROLL REVEAL =====
+const reveals = document.querySelectorAll('.reveal');
 
-  function revealOnScroll() {
-    reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      const trigger = window.innerHeight * 0.85;
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.85;
 
-      if (top < trigger) {
-        el.classList.add('active');
-      }
-    });
-  }
+    if (top < trigger) {
+      el.classList.add('active');
+    }
+  });
+}
 
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 </script>
+
 
 </body>
 <div id="preloader">
